@@ -1,0 +1,159 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Modern Tech Palette - Light Mode */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Primary: Dark blue/navy */
+    --primary: 221 68% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Electric violet */
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Soft gray */
+    --muted: 240 5% 65%;
+    --muted-foreground: 240 5% 25%;
+
+    /* Accent: Neon cyan */
+    --accent: 185 100% 49%;
+    --accent-foreground: 240 10% 8%;
+
+    /* Destructive: Neon magenta */
+    --destructive: 326 100% 43%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 185 100% 49%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 240 10% 94%;
+    --sidebar-foreground: 240 10% 8%;
+    --sidebar-primary: 185 100% 49%;
+    --sidebar-primary-foreground: 240 10% 8%;
+    --sidebar-accent: 270 91% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 6% 85%;
+    --sidebar-ring: 185 100% 49%;
+  }
+
+  .dark {
+    /* Modern Tech Palette - Dark Mode */
+    --background: 240 15% 8%;
+    --foreground: 0 0% 96%;
+
+    --card: 240 15% 12%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Primary: Neon cyan */
+    --primary: 185 100% 49%;
+    --primary-foreground: 240 15% 8%;
+
+    /* Secondary: Electric violet */
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 240 15% 8%;
+
+    /* Muted: Gray tones */
+    --muted: 240 5% 45%;
+    --muted-foreground: 240 5% 75%;
+
+    /* Accent: Neon magenta */
+    --accent: 326 100% 55%;
+    --accent-foreground: 0 0% 96%;
+
+    /* Destructive: Bright red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 15% 8%;
+
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 185 100% 49%;
+
+    /* Sidebar */
+    --sidebar-background: 240 12% 10%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 185 100% 49%;
+    --sidebar-primary-foreground: 240 15% 8%;
+    --sidebar-accent: 270 91% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 10% 18%;
+    --sidebar-ring: 185 100% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glass-morphism utilities */
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg;
+  }
+
+  .glass-dark {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-lg;
+  }
+
+  .neon-glow {
+    @apply shadow-lg shadow-neon-cyan/50;
+  }
+
+  .neon-glow-magenta {
+    @apply shadow-lg shadow-neon-magenta/50;
+  }
+}

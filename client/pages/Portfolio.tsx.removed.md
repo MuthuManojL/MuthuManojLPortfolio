@@ -1,0 +1,1 @@
+This page was removed to avoid duplication with Projects. The `/projects` route now serves the portfolio content.
